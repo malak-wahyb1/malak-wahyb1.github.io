@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <title>Fly Me To The Moon</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="solarStyle.css" />
+    <link href="cards.css" rel="stylesheet" />
+    <link rel="icon" href="./images/LogoSpace.png">
+    <script src="solar.js"></script>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    
+  <span class="switch">
+      <input id="switch-round" type="checkbox" onclick=dark() />
+      <label for="switch-round"></label>
+    </span>
+   <header>
+  <img src="./images/logo@2x-black (1).svg" width="50" height="50"  id="logo" class="logo1"/>
+  <div>
+  <h3>Home</h3>
+  <h3>About</h3>
+  <h3>contact</h3>
+  <div>
+  
+    
+  </div>
+ </div>
+   </header>
+   <section>
+    <div class="text text12">
+      <h1 class="ml1">
+        <span class="text-wrapper">
+          <span class="line line1"></span>
+          <span class="letters" >The first agency led by  <span style="color:#7bdcb5">creative</span></span>
+          <span class="line line2"></span>
+        </span>
+      </h1>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+      
+    <h1 id="str"></h1>
+   </div>
+   <div class="phone11">
+    <img src="./images/right-phone_s-e1654878243127.png"  class="phone"/>
+  </div>
+   </section>
+   
+      
+ 
+    <script>
+      function dark(){
+        var element = document.body;
+        var image =document.getElementById("logo")
+   element.classList.toggle("dark-mode");
+   image.classList.toggle("logo")
+      }
+
+      var string = "REFUGEE & FEMALE DEVELOPERS";
+var str = string.split("");
+var el = document.getElementById('str');
+(function animate() {
+str.length > 0 ? el.innerHTML += str.shift() : clearTimeout(running); 
+var running = setTimeout(animate, 20);
+})();
+///
+var textWrapper = document.querySelector('.ml1 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0.3,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: (el, i) => 70 * (i+1)
+  }).add({
+    targets: '.ml1 .line',
+    scaleX: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    offset: '-=875',
+    delay: (el, i, l) => 80 * (l - i)
+  }).add({
+    targets: '.ml1',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+  
+    </script>
+   
+  </body>
+</html>
+
+
